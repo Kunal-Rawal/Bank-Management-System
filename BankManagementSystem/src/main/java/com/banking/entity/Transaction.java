@@ -5,20 +5,28 @@
 
 package com.banking.entity;
 
-import java.util.Date;
-
 public class Transaction {
     private int id;
     private String type;
     private double amount;
     private String notes;
-    private Date timestamp;
+    private String timestamp;
     private int accountId;
 
     public Transaction() {
     }
+    
+    public Transaction(int id, String type, double amount, String notes, String timestamp, int accountId) {
+		super();
+		this.id = id;
+		this.type = type;
+		this.amount = amount;
+		this.notes = notes;
+		this.timestamp = timestamp;
+		this.accountId = accountId;
+	}
 
-    public int getId() {
+	public int getId() {
         return this.id;
     }
 
@@ -50,11 +58,11 @@ public class Transaction {
         this.notes = notes;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return this.timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
