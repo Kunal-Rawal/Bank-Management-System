@@ -1,5 +1,6 @@
 package com.banking.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +25,17 @@ public class TransactionServices {
 	public List<Transaction> getAllTransactions() {
 		// TODO Auto-generated method stub
 		return transactions;
+	}
+
+	public List<Transaction> getTransactionById(int accountId) {
+		// TODO Auto-generated method stub
+		List<Transaction> transactionById = new ArrayList<Transaction>();
+		for(int i=0;i<transactions.size();i++) {
+			if(transactions.get(i).getAccountId() == accountId) {
+				transactionById.add(transactions.get(i));
+			}
+		}
+		return transactionById;
 	}
 	
 }
