@@ -5,8 +5,10 @@
 
 package com.banking.controllers;
 
+import com.banking.entity.Transaction;
 import com.banking.entity.User;
 import com.banking.services.AdminServices;
+import com.banking.services.TransactionServices;
 import com.banking.services.UserServices;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,9 @@ public class MainController {
     UserServices userService;
     @Autowired
     AdminServices adminServices;
-
+    @Autowired
+    TransactionServices transactionServices;
+    
     public MainController() {
     }
 
@@ -40,5 +44,16 @@ public class MainController {
     public User addUser(@RequestBody User user) {
         this.adminServices.addUser(user);
         return user;
+    }
+    
+    @GetMapping("/getAllTransaction")
+    public List<Transaction> getAllTransactions(){
+    	return this.transactionServices.getAllTransactions();
+    }
+    
+    @PostMapping("/addTransaction")
+    public Transaction addTransaction(@RequestBody Transaction transaction) {
+    	this.transactionServices.addTransaction(transaction);
+    	return transaction;
     }
 }
