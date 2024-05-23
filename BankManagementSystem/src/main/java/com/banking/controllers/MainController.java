@@ -50,6 +50,11 @@ public class MainController {
     public List<Transaction> getAllTransactions(){
     	return this.transactionServices.getAllTransactions();
     }
+    // pass accountId not the transactionID.
+    @GetMapping("/getTransactionById/{accountId}")
+    public List<Transaction> getTransactionById(@PathVariable("accountId") int accountId) {
+    	return this.transactionServices.getTransactionById(accountId);
+    }
     
     @PostMapping("/addTransaction")
     public Transaction addTransaction(@RequestBody Transaction transaction) {
