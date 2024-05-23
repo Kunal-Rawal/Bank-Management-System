@@ -15,7 +15,18 @@ public class Account {
     public Account() {
     }
 
-    public String getCardNumber() {
+    
+    public Account(int id, String cardNumber, String cvv, double balance, int userId) {
+		super();
+		this.id = id;
+		this.cardNumber = cardNumber;
+		this.cvv = cvv;
+		this.balance = balance;
+		this.userId = userId;
+	}
+
+
+	public String getCardNumber() {
         return this.cardNumber;
     }
 
